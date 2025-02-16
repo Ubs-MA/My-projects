@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mohamed Abbas">
+    <meta name="description" content="The official website for The Little Pizza Restaurant">
+    <title>The Little Pizza Restaurant</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html#about">About <abbr title="The Little Pizza Restaurant">LPR</abbr></a>
+                </li>
+
+                <li>
+                    <a href="index.html#menu">Our Menu</a>
+                </li>
+
+                <li>
+                    <a href="hours.html">Restaurant Hours</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <figure>
+            <img src="images/pizza_close_up_400x260.png" alt="Pizza and a Drink" title="We love Pizza!" width="400"
+                height="267">
+
+            <figcaption>
+                Pizza and a Drink
+            </figcaption>
+        </figure>
+    </header>
+
+    <hr>
+
+    <main>
+        <section>
+            <h2>Our Contact Form</h2>
+
+            <form action="https://httpbin.org/get" method="get">
+                <fieldset>
+                    <legend>Send Us A Message</legend>
+
+                    <p>
+                        <label for="name">Name:</label>
+
+                        <input type="text" name="name" id="name" placeholder="your name" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email:</label>
+
+                        <input type="email" email="email" id="email" placeholder="your email" required>
+                    </p>
+
+                    <p>
+                        <label for="message">Your Message:</label>
+
+                        <br>
+
+                        <textarea name="message" id="message" cols="30" rows="10"
+                            placeholder="Type your message here"></textarea>
+                    </p>
+                </fieldset>
+
+                <button type="submit">Send</button>
+
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Our Location</h2>
+
+            <address>
+                157, 26 July St, Mohammed Mazhar
+                <br>
+                Zamalek, Cairo Governorate 4271050, Egypt
+                <br><br>
+                phone: <a href="tel:+5555555555">555-555-5555</a>
+            </address>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p> Copyright &copy; The Little Pizza Restaurant </p>
+    </footer>
+</body>
+
+</html>
