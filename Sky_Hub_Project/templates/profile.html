@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .profile-header {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .profile-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .profile-header p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .posts-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-item {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .post-item h3 a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .post-item h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .post-item .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .post-item img,
+    .post-item video {
+      border-radius: 8px;
+      margin-top: 10px;
+      max-width: 100%;
+    }
+  </style>
+
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <h1>Profile: {{ user.username }}</h1>
+    <p>Email: {{ user.email }}</p>
+  </div>
+
+  <h2 class="mb-4">Posts by {{ user.username }}</h2>
+
+  {% if posts %}
+    <ul class="posts-list">
+      {% for post in posts %}
+        <li class="post-item">
+          <h3>
+            <a href="{{ url_for('post_detail', post_id=post.id) }}">
+              {{ post.title }}
+            </a>
+          </h3>
+          <p class="meta">Posted on {{ post.date.strftime('%Y-%m-%d %H:%M') }}</p>
+
+          {% if post.content %}
+            <p>{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+          {% endif %}
+
+          {% if post.image_file %}
+            <img src="{{ url_for('static', filename='uploads/' ~ post.image_file) }}" 
+                 alt="{{ post.title }}">
+          {% endif %}
+
+          {% if post.video_file %}
+            <video controls>
+              <source src="{{ url_for('static', filename='uploads/' ~ post.video_file) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet by this user.</p>
+  {% endif %}
+{% endblock %}
